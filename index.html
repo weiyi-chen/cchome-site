@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>CCHome</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+/* 竖屏 16:9 的图：tiles 和 wood-flooring */
+.tile-item:nth-child(1) img,
+.tile-item:nth-child(2) img{
+    aspect-ratio: 9 / 16;        /* 竖屏 16:9 */
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+/* 横屏 4:3 的图：furniture 和 coming-soon */
+.tile-item:nth-child(3) img,
+.tile-item:nth-child(4) img{
+    aspect-ratio: 4 / 3;         /* 横屏 4:3 */
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1><a href="index.html">CCHome</a></h1>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+        <h2>CCHome</h2>
+        <p>Green Furniture & Quality Materials from China to the UK</p>
+    </section>
+
+    <!-- Main -->
+<section id="main" class="container">
+    <div class="tiles-grid">
+        <div class="tile-item">
+            <a href="tiles.html">
+                <img src="images/tiles.jpg" alt="Tiles">
+                <h3>Tiles</h3>
+                <p>Durable and stylish tiles, perfect for modern homes.</p>
+            </a>
+        </div>
+        <div class="tile-item">
+            <a href="wood-flooring.html">
+                <img src="images/wood.jpg" alt="Wood Flooring">
+                <h3>Wood Flooring</h3>
+                <p>Natural look with cost-effective alternatives.</p>
+            </a>
+        </div>
+		<div class="tile-item">
+            <a href="furniture.html">
+                <img src="images/furniture.jpg" alt="Furniture">
+                <h3>Furniture</h3>
+                <p>High-quality custom furniture at affordable prices.</p>
+            </a>
+        </div>
+        <div class="tile-item">
+            <a href="coming-soon.html">
+                <img src="images/coming-soon.jpg" alt="Coming Soon">
+                <h3>Coming Soon</h3>
+                <p>More products on the way, stay tuned!</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>&copy; CCHome. All rights reserved.</p>
+    </footer>
+</body>
+</html>
