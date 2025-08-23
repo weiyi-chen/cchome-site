@@ -3386,6 +3386,7 @@
 
 /* Normal */
 
+
 	@media screen and (max-width: 1280px) {
 
 		/* Basic */
@@ -3961,3 +3962,87 @@
 		height: auto;
 		border-radius: 5px;
 	}
+	.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 10px;
+    list-style: none;
+    border: 1px solid #ccc;
+    z-index: 9999; /* 让它浮到最上面 */
+	}
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	}
+	/* 让 header 本身进入叠层、层级最高 */
+	#header, .site-header{
+	position: sticky;  /* 或 fixed 也行 */
+	top: 0;
+	z-index: 9998;     /* 高于页面其它区域 */
+	overflow: visible; /* 防止被裁切 */
+	}
+
+	/* 下拉容器和菜单 */
+	.dropdown{ position: relative; }
+	.dropdown-menu{
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 0;
+	z-index: 10000;     /* 高于 header 的 9998 */
+	display: none;
+	background: #fff;
+	min-width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	box-shadow: 0 8px 20px rgba(0,0,0,.15);
+	}
+
+	/* PC 悬停展开（你已有点击展开也可保留） */
+	@media (hover:hover){
+	.dropdown:hover .dropdown-menu{ display:block; }
+	}
+
+	/* 确保下面这些区域层级较低，不盖住菜单 */
+	.sub-nav, section, #main, .container, #page-wrapper{
+	position: relative;
+	z-index: 1;
+	overflow: visible;
+	}
+	/* 让 header 左对齐排成一行，brand 和 nav 靠在一起 */
+	.site-header{
+	display:flex; align-items:center; 
+	justify-content:flex-start;        /* 关键：都靠左 */
+	gap: 24px;                         /* brand 与 nav 间距 */
+	background:#3d3d3d; color:#fff; padding:10px 20px;
+	position:sticky; top:0; z-index:1000;
+	}
+	.site-header a{ color:#fff; text-decoration:none; }
+
+	/* 菜单基础 */
+	.main-nav ul{ list-style:none; margin:0; padding:0; display:flex; }
+	.dropdown{ position:relative; }
+
+	/* 下拉菜单样式与颜色 */
+	.dropdown-menu{
+	display:none; position:absolute; top:100%; left:0;
+	background:#fff;                  /* 白底 */
+	min-width:200px; border:1px solid #ccc; border-radius:6px;
+	padding:8px 0; box-shadow:0 8px 20px rgba(0,0,0,.15);
+	z-index:10000;
+	}
+	.dropdown-menu a{
+	display:block; padding:8px 14px;
+	color:#333 !important;            /* 关键：深色文字 */
+	text-decoration:none;
+	}
+	.dropdown-menu a:hover{ background:#f2f2f2; }
+
+	/* 悬停展开（PC） */
+	@media (hover:hover){
+	.dropdown:hover .dropdown-menu{ display:block; }
+	}
+
+
+

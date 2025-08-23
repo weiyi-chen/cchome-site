@@ -1,285 +1,282 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-    <title>Bathroom Furniture - CCHome</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f8f8f8;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-        }
-        header h1 a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 20px;
-        }
-        .sub-nav {
-            background: #f4f4f4;
-            padding: 10px;
-            text-align: center;
-        }
-        .sub-nav a {
-            margin: 0 10px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .sub-nav a:hover {
-            color: #007BFF;
-        }
-        .product-grid-2col {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
-        .product-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        .product-group img {
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        h2 {
-            padding-left: 20px;
-            margin-top: 40px;
-            color: #444;
-        }
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-        }
-    </style>
+  <title>Bathroom Furniture - CCHome</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
+
+    /* 顶部导航 */
+    .site-header{
+      display:flex; align-items:center; justify-content:space-between;
+      background:#3d3d3d; color:#fff; padding:10px 20px;
+      position:sticky; top:0; z-index:1000;
+    }
+    .site-header a{ color:#fff; text-decoration:none; }
+    .brand a{ margin-right:20px; }
+    .main-nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:20px; }
+    .dropdown{ position:relative; }
+
+    .dropdown-menu{
+      display:none;
+      position:absolute; top:100%; left:0;
+      background:#fff; color:#333; min-width:200px;
+      border:1px solid #ccc; border-radius:6px; padding:8px 0;
+      z-index:9999;
+      box-shadow:0 8px 20px rgba(0,0,0,.15);
+    }
+    .dropdown-menu a{ color:#333; display:block; padding:8px 14px; }
+    .dropdown-menu a:hover{ background:#f2f2f2; }
+    @media (hover:hover){ .dropdown:hover .dropdown-menu{ display:block; } }
+
+    /* 页面分类导航 */
+    .sub-nav{ background:#f4f4f4; padding:10px; text-align:center; }
+    .sub-nav a{ margin:0 10px; color:#333; text-decoration:none; font-weight:bold; }
+    .sub-nav a:hover{ color:#007BFF; }
+
+    /* 图片布局 */
+    .product-grid-2col{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:20px; }
+    .product-group{ display:flex; flex-direction:column; gap:10px; background:#fff; padding:10px;
+      border-radius:8px; border:1px solid #ddd; }
+    .product-group img{ width:100%; border-radius:8px; cursor:pointer; }
+
+    h2{ padding-left:20px; margin-top:40px; color:#444; }
+
+    /* Lightbox */
+    .lightbox{ display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.8); justify-content:center; align-items:center; }
+    .lightbox img{ max-width:90%; max-height:90%; border-radius:8px; }
+  </style>
 </head>
 <body>
 
-<header id="header">
-    <h1>
-        <a href="index.html">CCHome</a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="furniture.html">Furniture</a>
-    </h1>
+<!-- 顶部导航 -->
+<header id="header" class="site-header">
+  <h1 class="brand">
+    <a href="index.html">CCHome</a>&nbsp;&nbsp;&nbsp;
+    <a href="furniture.html">Furniture</a>
+  </h1>
+
+  <!-- 就放在 brand 后面 -->
+  <nav class="main-nav">
+    <ul>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          Categories ▾
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#basins">Basins</a></li>
+          <li><a href="#cabinets">Cabinets</a></li>
+          <li><a href="#toilets">Toilets</a></li>
+          <li><a href="#vanity">Vanity Units</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 </header>
 
-<!-- 分类导航 -->
+
+<!-- 分类导航（页面内部跳转） -->
 <div class="sub-nav">
-    <a href="#basins">Basins</a> |
-    <a href="#cabinets">Cabinets</a> |
-    <a href="#toilets">Toilets</a> |
-    <a href="#vanity">Vanity Units</a>
+  <a href="#basins">Basins</a> |
+  <a href="#cabinets">Cabinets</a> |
+  <a href="#toilets">Toilets</a> |
+  <a href="#vanity">Vanity Units</a>
 </div>
 
 <!-- Basins Section -->
 <section id="basins" class="product-grid-2col">
+  <div class="product-group">   
     <h2>Basins</h2>
+    <img src="images/furniture/bathroom/basin1.jpg" alt="Basin" class="lightbox-img">
+    <img src="images/furniture/bathroom/basin2.jpg" alt="Basin" class="lightbox-img">
+  </div>
+  <div class="product-group">
+    <img src="images/furniture/bathroom/basin3.jpg" alt="Basin" class="lightbox-img">
+    <img src="images/furniture/bathroom/basin4.jpg" alt="Basin" class="lightbox-img">
+  </div>
     <div class="product-group">
-        <img src="images/furniture/basins/basin1.jpg" alt="basin" class="lightbox-img">
-        <img src="images/furniture/basins/basin2.jpg" alt="basin" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/basin5.jpg" alt="Basin" class="lightbox-img">
+    <img src="images/furniture/bathroom/basin6.jpg" alt="Basin" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/basins/basin3.jpg" alt="basin" class="lightbox-img">
-        <img src="images/furniture/basins/basin4.jpg" alt="basin" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/basin7.jpg" alt="Basin" class="lightbox-img">
+    <img src="images/furniture/bathroom/basin8.jpg" alt="Basin" class="lightbox-img">
+  </div>    
     <div class="product-group">
-        <img src="images/furniture/basins/basin5.jpg" alt="basin" class="lightbox-img">
-        <img src="images/furniture/basins/basin6.jpg" alt="basin" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/basin9.jpg" alt="Basin" class="lightbox-img">
+    <img src="images/furniture/bathroom/basin10.jpg" alt="Basin" class="lightbox-img">
+  </div>
     <div class="product-group">
-        <img src="images/furniture/basins/basin7.jpg" alt="basin" class="lightbox-img">
-        <img src="images/furniture/basins/basin8.jpg" alt="basin" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/basins/basin9.jpg" alt="basin" class="lightbox-img">
-        <img src="images/furniture/basins/basin10.jpg" alt="basin" class="lightbox-img">
-    </div>      
-    <div class="product-group">
-        <img src="images/furniture/basins/basin11.jpg" alt="basin" class="lightbox-img">
-        <img src="images/furniture/basins/basin12.jpg" alt="basin" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/basin11.jpg" alt="Basin" class="lightbox-img">
+    <img src="images/furniture/bathroom/basin12.jpg" alt="Basin" class="lightbox-img">
+
 </section>
 
 <!-- Cabinets Section -->
 <section id="cabinets" class="product-grid-2col">
-    <h2>Cabinets</h2>
+  <div class="product-group">
+    <h2>Cabinet</h2>
+    <img src="images/furniture/bathroom/cabinet1.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet2.jpg" alt="Cabinet" class="lightbox-img">
+  </div>
+  <div class="product-group">
+    <img src="images/furniture/bathroom/cabinet3.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet4.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet0.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet1.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet5.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet6.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet2.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet3.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet7.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet8.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet4.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet5.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet9.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet10.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet6.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet7.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet11.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet12.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet8.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet9.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet13.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet14.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet10.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet11.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet15.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet16.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet12.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet13.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+    <img src="images/furniture/bathroom/cabinet17.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet18.jpg" alt="Cabinet" class="lightbox-img">
+  </div>  
     <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet14.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet15.jpg" alt="cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet19.jpg" alt="Cabinet" class="lightbox-img">
+    <img src="images/furniture/bathroom/cabinet20.jpg" alt="Cabinet" class="lightbox-img">
     </div>
-    <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet16.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet17.jpg" alt="cabinet" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet18.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets /cabinet19.jpg" alt="cabinet" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet20.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet21.jpg" alt="cabinet" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet22.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet23.jpg" alt="cabinet" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/cabinets/cabinet24.jpg" alt="cabinet" class="lightbox-img">
-        <img src="images/furniture/cabinets/cabinet25.jpg" alt="cabinet" class="lightbox-img">
-    </div>
+
 </section>
 
 <!-- Toilets Section -->
 <section id="toilets" class="product-grid-2col">
-    <h2>Toilets</h2>
+  <div class="product-group">
+    <h2>Toilet</h2>
+    <img src="images/furniture/bathroom/toilet1.jpg" alt="Toilet" class="lightbox-img">
+    <img src="images/furniture/bathroom/toilet2.jpg" alt="Toilet" class="lightbox-img">
+  </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet1.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet2.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet3.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet4.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet3.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet4.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet5.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet6.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet5.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet6.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet7.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet8.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet7.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet8.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet9.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet10.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet9.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet10.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet11.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet12.jpg" alt="Toilet" class="lightbox-img"> 
+    </div>  
+    <div class="product-group">
+        <img src="images/furniture/bathroom/toilet13.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet14.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet11.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet12.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet15.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet16.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet13.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet14.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet17.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet18.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet15.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet16.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet19.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet20.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet17.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet18.jpg" alt="toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet21.jpg" alt="Toilet" class="lightbox-img">
+        <img src="images/furniture/bathroom/toilet22.jpg" alt="Toilet" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/toilets/toilet19.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet20.jpg" alt="toilet" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/toilets/toilet21.jpg" alt="toilet" class="lightbox-img">
-        <img src="images/furniture/toilets/toilet22.jpg" alt="toilet" class="lightbox-img">
-    </div>
+        <img src="images/furniture/bathroom/toilet23.jpg" alt="Toilet" class="lightbox-img">
 </section>
 
 <!-- Vanity Units Section -->
 <section id="vanity" class="product-grid-2col">
-    <h2>Vanity Units</h2>
+  <div class="product-group">
+    <h2>Vanity</h2>
+    <img src="images/furniture/bathroom/vanity1.jpg" alt="Vanity Unit" class="lightbox-img">
+    <img src="images/furniture/bathroom/vanity2.jpg" alt="Vanity Unit" class="lightbox-img">
+  </div>
     <div class="product-group">
-        <img src="images/furniture/vanity/vanity1.jpg" alt="vanity" class="lightbox-img">
-        <img src="images/furniture/vanity/vanity2.jpg" alt="vanity" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity3.jpg" alt="Vanity Unit" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity4.jpg" alt="Vanity Unit" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/vanity/vanity3.jpg" alt="vanity" class="lightbox-img">
-        <img src="images/furniture/vanity/vanity4.jpg" alt="vanity" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity5.jpg" alt="Vanity Unit" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity6.jpg" alt="Vanity Unit" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/vanity/vanity5.jpg" alt="vanity" class="lightbox-img">
-        <img src="images/furniture/vanity/vanity6.jpg" alt="vanity" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity7.jpg" alt="Vanity Unit" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity8.jpg" alt="Vanity Unit" class="lightbox-img"> 
     </div>
     <div class="product-group">
-        <img src="images/furniture/vanity/vanity7.jpg" alt="vanity" class="lightbox-img">
-        <img src="images/furniture/vanity/vanity8.jpg" alt="vanity" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity9.jpg" alt="Vanity Unit" class="lightbox-img">
+        <img src="images/furniture/bathroom/vanity10.jpg" alt="Vanity Unit" class="lightbox-img"> 
     </div>
-    <div class="product-group">
-        <img src="images/furniture/vanity/vanity9.jpg" alt="vanity" class="lightbox-img">
-        <img src="images/furniture/vanity/vanity10.jpg" alt="vanity" class="lightbox-img">
-    </div>
-    <div class="product-group">
-        <img src="images/furniture/vanity/vanity11.jpg" alt="vanity" class="lightbox-img">
-       
-    </div>
+
 </section>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-    <img src="" alt="">
+  <img src="" alt="">
 </div>
 
 <script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = lightbox.querySelector('img');
-document.querySelectorAll('.lightbox-img').forEach(img => {
+  // Lightbox 功能
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.lightbox-img').forEach(img => {
     img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
     });
-});
-lightbox.addEventListener('click', () => {
+  });
+  lightbox.addEventListener('click', () => {
     lightbox.style.display = 'none';
-});
+  });
+
+  // 手机点击下拉菜单
+  document.querySelectorAll('.dropdown-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const menu = this.parentElement.querySelector('.dropdown-menu');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      document.querySelectorAll('.dropdown-menu').forEach(m=>{
+        if(m!==menu) m.style.display='none';
+      });
+      menu.style.display = expanded ? 'none' : 'block';
+    });
+  });
+  document.addEventListener('click', function(e){
+    const isDrop = e.target.closest('.dropdown');
+    if(!isDrop){
+      document.querySelectorAll('.dropdown-menu').forEach(m=>m.style.display='none');
+      document.querySelectorAll('.dropdown-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));
+    }
+  });
 </script>
 
 </body>
